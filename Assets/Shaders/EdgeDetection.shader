@@ -80,35 +80,22 @@ Shader "Unlit/EdgeDetection"
                 uvs[2] = uv + texel_size * float2(half_width_f, half_width_f) * float2(-1, -1); // bottom left
                 uvs[3] = uv + texel_size * float2(half_width_c, half_width_f) * float2(1, -1);  // bottom right
                 
-                float3 normal_samples[4];
                 float depth_samples[4], luminance_samples[4];
                 
                 for (int i = 0; i < 4; i++) {
                     depth_samples[i] = SampleSceneDepth(uvs[i]);
-                    normal_samples[i] = SampleSceneNormalsRemapped(uvs[i]);
-                    luminance_samples[i] = SampleSceneLuminance(uvs[i]);
                 }
                 
                 // Apply edge detection kernel on the samples to compute edges.
                 float edge_depth = RobertsCross(depth_samples);
-                float edge_normal = RobertsCross(normal_samples);
-                float edge_luminance = RobertsCross(luminance_samples);
                 
                 // Threshold the edges (discontinuity must be above certain threshold to be counted as an edge). The sensitivities are hardcoded here.
                 float depth_threshold = 1 / 200.0f;
                 edge_depth = edge_depth > depth_threshold ? 1 : 0;
                 
-                float normal_threshold = 1 / 4.0f;
-                edge_normal = edge_normal > normal_threshold ? 1 : 0;
-                
-                float luminance_threshold = 1 / 0.5f;
-                edge_luminance = edge_luminance > luminance_threshold ? 1 : 0;
-                
-                // Combine the edges from depth/normals/luminance using the max operator.
-                float edge = max(edge_depth, max(edge_normal, edge_luminance));
                 
                 // Color the edge with a custom color.
-                return edge * _OutlineColor;
+                return edge_depth * _OutlineColor;
             }
             ENDHLSL
         }
