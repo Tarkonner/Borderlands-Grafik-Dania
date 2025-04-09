@@ -26,8 +26,6 @@ Shader "Unlit/EdgeDetection"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl" // needed to sample scene depth
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl" // needed to sample scene normals
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl" // needed to sample scene color/luminance
 
             float _OutlineThickness;
             float4 _OutlineColor;
@@ -51,23 +49,11 @@ Shader "Unlit/EdgeDetection"
                 return sqrt(difference_1 * difference_1 + difference_2 * difference_2);
             }
             
-            // Helper function to sample scene normals remapped from [-1, 1] range to [0, 1].
-            float3 SampleSceneNormalsRemapped(float2 uv)
-            {
-                return SampleSceneNormals(uv) * 0.5 + 0.5;
-            }
-
-            // Helper function to sample scene luminance.
-            float SampleSceneLuminance(float2 uv)
-            {
-                float3 color = SampleSceneColor(uv);
-                return color.r * 0.3 + color.g * 0.59 + color.b * 0.11;
-            }
 
             half4 frag(Varyings IN) : SV_TARGET
             {
                 // Screen-space coordinates which we will use to sample.
-                float2 uv = IN.texcoord;
+                float2 uv = IN.texcoord; //0 to 1
                 float2 texel_size = float2(1.0 / _ScreenParams.x, 1.0 / _ScreenParams.y);
                 
                 // Generate 4 diagonally placed samples.
@@ -80,7 +66,7 @@ Shader "Unlit/EdgeDetection"
                 uvs[2] = uv + texel_size * float2(half_width_f, half_width_f) * float2(-1, -1); // bottom left
                 uvs[3] = uv + texel_size * float2(half_width_c, half_width_f) * float2(1, -1);  // bottom right
                 
-                float depth_samples[4], luminance_samples[4];
+                float depth_samples[4];
                 
                 for (int i = 0; i < 4; i++) {
                     depth_samples[i] = SampleSceneDepth(uvs[i]);
