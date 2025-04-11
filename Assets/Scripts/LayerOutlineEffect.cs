@@ -36,6 +36,8 @@ public class LayerOutlineEffect : ScriptableRendererFeature
             || UniversalRenderer.IsOffscreenDepthTexture(ref renderingData.cameraData))
             return;
 
+        
+
 
         outlinePass.ConfigureInput(ScriptableRenderPassInput.Depth | ScriptableRenderPassInput.Normal | ScriptableRenderPassInput.Color);
 
