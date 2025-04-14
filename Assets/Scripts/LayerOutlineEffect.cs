@@ -23,7 +23,6 @@ public class LayerOutlineEffect : ScriptableRendererFeature
 
     public override void Create()
     {
-
         outlinePass = new OutlinePass(RenderPassEvent.AfterRendering, settings.outlineMaterial);
     }
 
