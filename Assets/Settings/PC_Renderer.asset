@@ -16,7 +16,7 @@ MonoBehaviour:
   injectionPoint: 600
   fetchColorBuffer: 1
   requirements: 0
-  passMaterial: {fileID: -876546973899608171, guid: 4d8ab36f26e2f9946b47c3ec5824d708, type: 3}
+  passMaterial: {fileID: 2100000, guid: 3a34beecacbf4dd47960e3ca7174ba94, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_RendererFeatureMap: ad6b866f10d7b46c08a8acce058cda62136ed7dba3a0ca1d349d86f3870bfc8e
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
-  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  postProcessData: {fileID: 11400000, guid: 350a709cf1218764c94f752764b6ab69, type: 2}
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
@@ -100,14 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d479e2b972bca4bba17adb03afae3b, type: 3}
   m_Name: LayerOutlineEffect
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     renderPassEvent: 500
     outlineThickness: 1
     depthMin: 0
     depthMax: 1
     outlineMaterial: {fileID: 2100000, guid: 652c1f2921be77b4daad9e918c424646, type: 2}
-    outlineColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &7123159717210007560
 MonoBehaviour:
   m_ObjectHideFlags: 0

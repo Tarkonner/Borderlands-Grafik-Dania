@@ -14,7 +14,7 @@ public class LayerOutlineEffect : ScriptableRendererFeature
         [Range(0, 1)] public float depthMin = 0;
         [Range(0, 1)] public float depthMax = 1;
         public Material outlineMaterial;
-        public Color outlineColor = Color.black;
+        //public Color outlineColor = Color.black;
     }
 
     [SerializeField] private LayerOutlineEffectSettings settings;
