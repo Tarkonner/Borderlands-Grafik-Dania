@@ -22,9 +22,10 @@ Shader "Custom/Lighting"
             HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
-
+            #pragma shader_feature _FORWARD_PLUS
             
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
             half4 _Color;
@@ -39,6 +40,7 @@ Shader "Custom/Lighting"
             {
                 float4 positionCS : SV_POSITION;
                 float3 normalWS : TEXTCOORD0;
+                float3 positionWS : TEXTCOORD1;
             };
 
             Varyings Vertex(Attributes input)
@@ -51,7 +53,19 @@ Shader "Custom/Lighting"
 
             half4 Fragment(Varyings v) : SV_Target
             {    
-                return _Color;
+                InputData lighting = (InputData) 0;
+                lighting.positionWS = v.positionWS;
+                lighting.normalWS = normalize(v.normalWS);
+                lighting.viewDirectionWS = GetWorldSpaceViewDir(v.positionWS);
+
+                SurfaceData surface = (SurfaceData) 0;
+                surface.albedo = _Color;
+                surface.alpha = 1;
+                surface.smoothness = .9;
+                surface.specular = .9;
+
+
+                return UniversalFragmentBlinnPhong(lighting, surface) + unity.AmbientSky;
             }
 
             ENDHLSL
