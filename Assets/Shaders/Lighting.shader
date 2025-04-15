@@ -20,14 +20,15 @@ Shader "Custom/Lighting"
             Tags {"LightMode" = "UniversalForward"}
 
             HLSLPROGRAM
-            #pragma vertex Vert
-            #pragma fragment Frag
+            #pragma vertex Vertex
+            #pragma fragment Fragment
 
             
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
             half4 _Color;
+            CBUFFER_END
 
             struct Attributes{
                float3 positionLS : POSITION;
