@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaingWaterfall
-  m_Shader: {fileID: -6465566751694194690, guid: 4b00bf46b2c77e2468055469b6e2f830, type: 3}
+  m_Name: Anders_Blinn-Phong
+  m_Shader: {fileID: -6465566751694194690, guid: 32cb9962337bfde498e7e2e983fd2831, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -64,10 +64,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_1d2cac7a1e4843ee811f8d07be6f036d_Texture_1_Texture2D:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -104,38 +100,31 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LineCount: 0.03
-    - _LineWidth: 0.06
     - _Metallic: 0
-    - _NoiseScale: 0.06
-    - _NoiseSpeed: 4000
-    - _NormalAlpha: 0.9
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Shininess: 4.85
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _TopFalloff: 0.53
-    - _TopLine: 0.85
-    - _WaveStreght: 5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 0.088679194, b: 0.088679194, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.7754717, g: 1, b: 0.95813495, a: 1}
-    - _NoiseShape: {r: 0.85, g: 4.61, b: 0, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecialrColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1611453485392743119
+--- !u!114 &917860605422347914
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
