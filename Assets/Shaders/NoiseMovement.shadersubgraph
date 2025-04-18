@@ -12,7 +12,11 @@
     ],
     "m_Keywords": [],
     "m_Dropdowns": [],
-    "m_CategoryData": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "ca276813163d4ebfa22318646c7f0d68"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "dd62a4b1aa904cb99ae3d08e66104aaf"
@@ -510,10 +514,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 97.2000732421875,
-            "y": -19.599945068359376,
-            "width": 0.0,
-            "height": 0.0
+            "x": 85.5999755859375,
+            "y": -60.79996871948242,
+            "width": 138.40003967285157,
+            "height": 33.599998474121097
         }
     },
     "m_Slots": [
@@ -737,10 +741,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -299.60009765625,
-            "y": 65.60003662109375,
-            "width": 0.0,
-            "height": 0.0
+            "x": -324.0000305175781,
+            "y": 20.800003051757814,
+            "width": 137.6000213623047,
+            "height": 33.60000228881836
         }
     },
     "m_Slots": [
@@ -1023,6 +1027,21 @@
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "ca276813163d4ebfa22318646c7f0d68",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "abd8fb8d551b437fa457830cbe9966c3"
+        },
+        {
+            "m_Id": "c29460436f9046fa978813d24f3cb278"
+        }
+    ]
 }
 
 {
