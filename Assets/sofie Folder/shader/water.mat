@@ -105,7 +105,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Fade_Distance: 1
+    - _Depth_Fade_Distance: 5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -128,7 +128,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Refraction_Speed: 0.1
-    - _Refraction_Strength: 0.0049
+    - _Refraction_Strength: 0.0043
     - _Slow_Speed: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
