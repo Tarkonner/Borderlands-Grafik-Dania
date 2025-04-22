@@ -5,9 +5,8 @@ Shader "Fog/VolumetricFog"
         _MainColor ("Fog Color", Color) = (0.7, 0.8, 1, 1)
         _FogDensity ("Fog Density", Float) = 3
         _ObjectRadius ("Object Radius", Float) = 3000
-        _NoiseScale ("Noise Scale", Float) = 0.01
+        _NoiseScale ("Noise Scale", Float) = 0.03
         _Speed ("Noise Speed", Float) = 0.1
-        _FogNoiseTex ("Noise Texture", 3D) = "white" {}
     }
 
     SubShader
@@ -46,8 +45,15 @@ Shader "Fog/VolumetricFog"
             float _NoiseScale;
             float _Speed;
 
-            TEXTURE3D(_FogNoiseTex);
-            SAMPLER(sampler_FogNoiseTex);
+            float hash(float3 p)
+            {
+                return frac(sin(dot(p, float3(12.9898, 78.233, 37.719))) * 43758.5453);
+            }
+
+            float noise(float3 p)
+            {
+                return lerp(hash(floor(p)), hash(ceil(p)), frac(p.x + p.y + p.z));
+            }
 
             v2f vert (appdata v)
             {
@@ -59,19 +65,20 @@ Shader "Fog/VolumetricFog"
 
             half4 frag (v2f i) : SV_Target
             {
-                // World-space center of object
+                // Center of object in world space
                 float3 center = GetObjectToWorldMatrix()[3].xyz;
 
-                // Distance from pixel to center
+                // Distance from point in world space to object center
                 float dist = distance(i.worldPos, center);
+
+                // Normalize falloff by object radius
                 float falloff = saturate(1.0 - dist / _ObjectRadius);
 
-                // Animated 3D noise sampling
-                float3 noiseUV = i.worldPos * _NoiseScale + _Time.y * _Speed;
-                float n = SAMPLE_TEXTURE3D(_FogNoiseTex, sampler_FogNoiseTex, noiseUV).r;
+                // Add animated noise
+                float n = noise(i.worldPos * _NoiseScale + _Time.y * _Speed);
 
-                // Final alpha based on falloff and noise
-                float alpha = falloff * n * _FogDensity;
+                // Final fog alpha
+                float alpha = falloff * saturate(n + 0.2) * _FogDensity;
 
                 return half4(_MainColor.rgb, alpha);
             }

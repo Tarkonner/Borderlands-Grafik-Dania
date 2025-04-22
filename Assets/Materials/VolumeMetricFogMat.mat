@@ -108,7 +108,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NoiseScale: 0.015
-    - _ObjectRadius: 3000
+    - _ObjectRadius: 1000
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
