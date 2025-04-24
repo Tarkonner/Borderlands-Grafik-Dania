@@ -94,6 +94,8 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorNoiseScale: 20
+    - _ColorNoiseSpeed: 5
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -108,7 +110,7 @@ Material:
     - _LineWidth: 0.06
     - _Metallic: 0
     - _NoiseScale: 0.06
-    - _NoiseSpeed: 4000
+    - _NoiseSpeed: 1000
     - _NormalAlpha: 0.9
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -129,9 +131,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorNoiseShape: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.7754717, g: 1, b: 0.95813495, a: 1}
-    - _NoiseShape: {r: 0.85, g: 4.61, b: 0, a: 0}
+    - _NoiseShape: {r: 4.6, g: 0.8, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
